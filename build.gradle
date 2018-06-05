@@ -1,0 +1,30 @@
+group 'hillel-java-starter'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.10.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+}
+
+task wrapper (type: Wrapper){
+    gradleVersion='4.7'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'console.game.GameRunner'
+        )
+    }
+}
